@@ -12,6 +12,25 @@ Cuando **baja**, solo lo escribe en la consola.
 
 Cada persona que use este proyecto debe crear **su propia app** en Kick. No copies el Client ID ni el Client Secret de nadie.
 
+> **Nota:** Kick no expone “usuario X entró”. Solo el **conteo total** de viewers; este monitor avisa cuando ese número **sube**.
+
+---
+
+## Comparación rápida
+
+| Herramienta | Alerta si suben viewers | Pros | Contras |
+|-------------|:-----------------------:|------|---------|
+| **[KICK Viewer Monitor](https://github.com/tomatoes-prog/abera-kick-viewers)** (este) | ✅ | Ligero, `.exe` sin Python, sonido + notificación en tu PC, mensaje al chat opcional, sin OBS | Solo subida/bajada de contador; no follow/sub/overlay; no dice quién entró |
+| [KickBot](https://kickbot.com/) | ❌ | Gratis, cloud, chatbot + alertas follow/sub/gift/raid | No avisa por viewers; overlays van en OBS |
+| [Streamlabs](https://streamlabs.com/) | ❌ | Alert Box y widgets para Kick | Viewer Counter solo muestra el número; no alerta al subir |
+| [Streamer.bot](https://streamer.bot/) | ⚙️ | Trigger `Viewer Count Update`, muy configurable | App pesada; hay que montar la automatización a mano |
+| [KickAlert](https://github.com/segelferd/kick-alert) | 👀 | Spike/drop de viewers en canales que **sigues** | Para espectadores, no para monitorizar **tu** stream |
+| [BotRix](https://botrix.live/) / [BroBotKick](https://brobot.uk/) | ❌ | Chatbot, saludos y alertas follow/sub | No alertan por subida del contador de viewers |
+
+**Cuándo usar este proyecto:** quieres oír un sonido en tu PC cuando suben los viewers, sin instalar OBS ni configurar Streamer.bot.
+
+**Cuándo usar otra cosa:** quieres alertas de follows, subs, overlays en stream o un bot de chat completo → [KickBot](https://kickbot.com/) o [Streamlabs](https://streamlabs.com/).
+
 ---
 
 ## Opción fácil (Windows): la app `.exe`
