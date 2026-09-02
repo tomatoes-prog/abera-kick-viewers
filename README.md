@@ -14,7 +14,28 @@ Cada persona que use este proyecto debe crear **su propia app** en Kick. No copi
 
 ---
 
-## Qué necesitas
+## Opción fácil (Windows): la app `.exe`
+
+No hace falta instalar Python.
+
+1. Descarga **KickViewerMonitor-windows.zip** en [Releases](https://github.com/tomatoes-prog/abera-kick-viewers/releases/latest).
+2. Descomprime la carpeta y abre `KickViewerMonitor.exe`.
+3. Crea tu app en [Kick Developer](https://kick.com/settings/developer) con esta Redirect URI **exacta**:
+
+   ```
+   http://localhost:8079/callback
+   ```
+
+4. Pega Client ID, Client Secret y el slug de tu canal (`kick.com/tu-canal` → `tu-canal`).
+5. Pulsa **Iniciar**. La primera vez se abre el navegador para autorizar.
+
+`.env` y `oauth_tokens.json` se crean solos junto al `.exe`. No los subas a internet.
+
+La carpeta del zip es un `onedir` a propósito: arranca más rápido que un único `.exe` gigante.
+
+---
+
+## Qué necesitas (si usas Python)
 
 - Python **3.10** o superior
 - Una cuenta de Kick
@@ -277,3 +298,16 @@ Borra `oauth_tokens.json` y vuelve a lanzar el script.
 ## Privacidad
 
 Este script llama a la API pública de Kick (`api.kick.com` e `id.kick.com`) con **tus** credenciales. El Client Secret, el access token y el refresh token se quedan en tu máquina (`.env` y `oauth_tokens.json`). No los compartas.
+
+---
+
+## Generar el `.exe` (mantenimiento)
+
+En Windows, con el entorno virtual activado:
+
+```powershell
+pip install -r requirements.txt -r requirements-build.txt
+pyinstaller --noconfirm kick_viewers.spec
+```
+
+El resultado queda en `dist/KickViewerMonitor/`. También se puede lanzar el flujo **Build Windows exe** en GitHub Actions.

@@ -1,0 +1,13 @@
+KICK Viewer Monitor
+===================
+
+1. Abre KickViewerMonitor.exe
+2. En Kick crea una app: https://kick.com/settings/developer
+3. Redirect URI (exacta): http://localhost:8079/callback
+4. Pega Client ID, Client Secret y el nombre de tu canal (slug)
+5. Pulsa Iniciar. La primera vez se abre el navegador para autorizar.
+
+No hace falta instalar Python.
+
+Los archivos .env y oauth_tokens.json se crean solos junto al .exe.
+No los subas a internet.

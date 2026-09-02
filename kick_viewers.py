@@ -305,7 +305,7 @@ class OAuthCallbackHandler(BaseHTTPRequestHandler):
                 </h1>
                 <p>
                     Ya puedes cerrar esta pestaña
-                    y volver a la consola.
+                    y volver a Kick Viewer Monitor.
                 </p>
             </body>
             </html>
@@ -1217,14 +1217,6 @@ def main(stop_event=None):
                 print()
                 print("🛑 Monitor detenido.")
                 break
-
-
-# ============================================================
-# INICIO
-# ============================================================
-
-if __name__ == "__main__":
-    main()
 
 
 # ============================================================

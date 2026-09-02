@@ -1,0 +1,37 @@
+name: Build Windows exe
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-build.txt
+
+      - name: Empaquetar
+        run: pyinstaller --noconfirm kick_viewers.spec
+
+      - name: Instrucciones junto al exe
+        run: Copy-Item INSTRUCCIONES.txt dist/KickViewerMonitor/INSTRUCCIONES.txt
+
+      - name: ZIP
+        run: |
+          Compress-Archive -Path dist/KickViewerMonitor -DestinationPath dist/KickViewerMonitor-windows.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: KickViewerMonitor-windows
+          path: dist/KickViewerMonitor-windows.zip

@@ -18,3 +18,23 @@ __pycache__/
 
 .DS_Store
 Thumbs.db
+
+build/
+dist/
+*.spec.bak
+
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+
+.idea/
+.vscode/
+*.iml
+
+.DS_Store
+Thumbs.db
